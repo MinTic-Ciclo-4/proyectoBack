@@ -5,20 +5,19 @@ import { UserModel } from "./models/user";
 const main = async () => {
   await conectarBD();
 
-  // await UserModel.create({
-  //   correo: "johanfore69@gmail.com",
-  //   identificacion: "1007445874",
-  //   nombre: "Johan",
-  //   apellido: "Orozco",
-  //   rol: Enum_Rol,
-  //   estado: Enum_EstadoUsuario.pendiente
-  // })
-  // .then(u => {
-  //   console.log("Usuario Creado", u);
-  // })
-  // .catch((e) => {
-  //   console.error("Error al crear el usuario", e);
-  // });
+  await UserModel.create({
+    correo: "johanfore69gmail.com",
+    identificacion: "1007445878",
+    nombre: "Johan",
+    apellido: "Orozco",
+    rol: Enum_Rol.administrador,
+  })
+  .then(u => {
+    console.log("Usuario Creado", u);
+  })
+  .catch((e) => {
+    console.error("Error al crear el usuario", e);
+  });
 
   //Obtener un Usuario
 
@@ -56,13 +55,13 @@ const main = async () => {
 
   //Eliminar Usuario
 
-  await UserModel.findOneAndDelete({correo: 'johanfore67@gmail.com'})
-  .then((u) => {
-    console.log("Usuario Eliminado", u);
-  })
-  .catch((e) => {
-    console.error("Usuario no Eliminado", e);
-  })
+  // await UserModel.findOneAndDelete({correo: 'johanfore67@gmail.com'})
+  // .then((u) => {
+  //   console.log("Usuario Eliminado", u);
+  // })
+  // .catch((e) => {
+  //   console.error("Usuario no Eliminado", e);
+  // })
 
 }
 
