@@ -1,8 +1,9 @@
 import conectarBD from "./db/db";
-import { Enum_Rol, Enum_TipoObjetivo } from "./models/enums";
+import { Enum_Rol, Enum_TipoObjetivo } from "./models/enums/enums";
 import { ObjectiveModel } from "./models/objective";
-import { ProjectModel } from "./models/project";
-import { UserModel } from "./models/user";
+import { ProjectModel } from "./models/projects/project";
+import { UserModel } from "./models/users/user";
+
 
 const crearProyecto = async () => {
   await ProjectModel.create({
