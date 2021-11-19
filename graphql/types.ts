@@ -39,6 +39,16 @@ const typeDefs = gql`
     ):User
 
     eliminarUsuario(_id: String, correo: String):User
+
+    editarUsuario(
+      _id: String!
+      nombre: String!
+      apellido: String!
+      identificacion: String!
+      correo: String!
+      rol: Enum_Rol!
+      estado: Enum_EstadoUsuario
+    ):User
   }
 `;
 

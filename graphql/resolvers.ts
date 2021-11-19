@@ -12,7 +12,7 @@ const resolvers = {
 
   Mutation: {
     crearUsuario: async (parent, args) => {
-      const crearUsuario = await UserModel.create({
+      const usuarioCreado = await UserModel.create({
         nombre: args.nombre,
         apellido: args.apellido,
         identificacion: args.identificacion,
@@ -21,20 +21,31 @@ const resolvers = {
       });
 
       if (Object.keys(args).includes('estado')) {
-        crearUsuario.estado = args.estado;
+        usuarioCreado.estado = args.estado;
       }
 
-      return crearUsuario;
+      return usuarioCreado;
     },
 
     eliminarUsuario: async (parent, args) => {
       if (Object.keys(args).includes('_id')) {
-        const eliminarUsuario = await UserModel.findByIdAndDelete({ _id: args._id })
-        return eliminarUsuario;
+        const usuarioEliminado = await UserModel.findByIdAndDelete({ _id: args._id })
+        return usuarioEliminado;
       }else{
-        const eliminarUsuario = await UserModel.findOneAndDelete({ correo: args.correo })
-        return eliminarUsuario;
+        const usuarioEliminado = await UserModel.findOneAndDelete({ correo: args.correo })
+        return usuarioEliminado;
       }
+    },
+
+    editarUsuario: async (parent, args) => {
+      const usuarioEditado = await UserModel.findByIdAndUpdate(args._id,{
+        nombre: args.nombre,
+        apellido: args.apellido,
+        identificacion: args.identificacion,
+        correo: args.correo,
+        rol: args.rol,
+        estado: args.estado
+      });
     }
   }
 }
