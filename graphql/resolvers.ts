@@ -61,6 +61,7 @@ const resolvers = {
         lider: args.lider,
         objetivos: args.objetivos
       })
+      return proyectoCreado;
     },
   }
 }

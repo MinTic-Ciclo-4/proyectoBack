@@ -49,6 +49,12 @@ const typeDefs = gql`
     tipo: Enum_TipoObjetivo!
   }
 
+  input createObjective{
+    descripcion: String!
+    tipo: Enum_TipoObjetivo!
+  }
+
+
   type Project {
     _id: ID!
     nombre: String!
@@ -93,8 +99,8 @@ const typeDefs = gql`
       presupuesto: Float!
       fechaInicio: Date!
       fechaFin: Date!
-      lider: User!
-      objetivos: [Objective]!
+      lider: String!
+      objetivos: [createObjective]
     ):Project
   }
 `;
