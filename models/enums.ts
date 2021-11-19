@@ -10,7 +10,7 @@ enum Enum_Rol {
 enum Enum_EstadoUsuario {
   PENDIENTE="PENDIENTE",
   AUTORIZADO= "AUTORIZADO",
-  NO_AUTORIZADO = "NO AUTORIZADO",
+  NO_AUTORIZADO = "NO_AUTORIZADO",
 }
 
 //Enums Proyect

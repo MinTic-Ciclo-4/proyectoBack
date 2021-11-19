@@ -20,8 +20,8 @@ const typeDefs = gql`
     apellido: String!
     identificacion: String!
     correo: String!
-    estado: Enum_EstadoUsuario!
     rol: Enum_Rol!
+    estado: Enum_EstadoUsuario
   }
 
   type Query {
@@ -34,9 +34,11 @@ const typeDefs = gql`
       apellido: String!
       identificacion: String!
       correo: String!
-      estado: Enum_EstadoUsuario!
       rol: Enum_Rol!
+      estado: Enum_EstadoUsuario
     ):User
+
+    eliminarUsuario(_id: String, correo: String):User
   }
 `;
 
