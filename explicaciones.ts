@@ -12,9 +12,9 @@ const crearProyecto = async () => {
     fechaFin: new Date("2022/11/10"),
     lider: "618f272d30bdc63f491d7c2e",
     objetivos: [
-      {descripcion: "Este es el objetivo general", tipo: Enum_TipoObjetivo.general},
-      {descripcion: "Este es el primer objetivo especifico", tipo: Enum_TipoObjetivo.especifico},
-      {descripcion: "Este es el segundo objetivo especifico", tipo: Enum_TipoObjetivo.especifico}]
+      {descripcion: "Este es el objetivo general", tipo: Enum_TipoObjetivo.GENERAL},
+      {descripcion: "Este es el primer objetivo especifico", tipo: Enum_TipoObjetivo.ESPECIFICO},
+      {descripcion: "Este es el segundo objetivo especifico", tipo: Enum_TipoObjetivo.ESPECIFICO}]
   })
     .then(u => {
       console.log("Proyecto Creado", u);

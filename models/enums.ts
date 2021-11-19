@@ -16,22 +16,22 @@ enum Enum_EstadoUsuario {
 //Enums Proyect
 
 enum Enum_EstadoProyecto {
-  activo = "Activo",
-  inactivo = "Inactivo"
+  ACTIVO = "ACTIVO",
+  INACTIVO = "INACTIVO"
 }
 
 enum Enum_FaseProyecto {
-  iniciado = "Iniciado",
-  enDesarrollo = "En Desarrollo",
-  terminado = "Terminado",
-  nulo = ""
+  INICIADO = "INICIADO",
+  DESARROLLO = "DESARROLLO",
+  TERMINADO = "TERMINADO",
+  NULO = ""
 }
 
 //Enums Objective
 
 enum Enum_TipoObjetivo {
-  general = "General",
-  especifico = "Especifico"
+  GENERAL = "GENERAL",
+  ESPECIFICO = "ESPECIFICO"
 }
 
 //Enums Inscripcion

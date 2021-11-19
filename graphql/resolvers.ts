@@ -1,12 +1,16 @@
+import { ProjectModel } from "../models/project";
 import { UserModel } from "../models/user";
 
 const resolvers = {
   Query: {
     Users: async (parent, args) => {
-
       const users = await UserModel.find();
-
       return users;
+    },
+
+    Projects: async (parent, args) => {
+      const projects = await ProjectModel.find().populate('lider');
+      return projects;
     }
   },
 
@@ -46,7 +50,18 @@ const resolvers = {
         rol: args.rol,
         estado: args.estado
       });
-    }
+    },
+
+    crearProyecto: async (parent, args) => {
+      const proyectoCreado = await ProjectModel.create({
+        nombre: args.nombre,
+        presupuesto: args.presupuesto,
+        fechaInicio: args.fechaInicio,
+        fechaFin: args.fechaFin,
+        lider: args.lider,
+        objetivos: args.objetivos
+      })
+    },
   }
 }
 
