@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { Enum_EstadoInscripcion } from "./enums";
-import { ProjectModel } from "./project";
-import { UserModel } from "./user";
+import { Enum_EstadoInscripcion } from "../enums/enums";
+import { ProjectModel } from "../projects/project";
+import { UserModel } from "../users/user";
 
 interface inscription {
   fechaIngreso: Date,
@@ -18,7 +18,7 @@ const  inscripcionSchema = new Schema<inscription>({
   },
   fechaEgreso: {
     type: Date,
-    required: true,
+    required: false,
   },
   estado: {
     type: String,

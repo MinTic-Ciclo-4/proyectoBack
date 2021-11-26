@@ -37,8 +37,9 @@ enum Enum_TipoObjetivo {
 //Enums Inscripcion
 
 enum Enum_EstadoInscripcion {
-  aceptada = "Aceptada",
-  rechazada = "Rechazada"
+  ACEPTADA = "ACEPTADA",
+  RECHAZADA = "RECHAZADA",
+  PENDIENTE = "PENDIENTE",
 }
 
 export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto,
