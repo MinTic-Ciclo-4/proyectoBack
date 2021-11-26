@@ -23,6 +23,7 @@ const  inscripcionSchema = new Schema<inscription>({
   estado: {
     type: String,
     enum: Enum_EstadoInscripcion,
+    default: Enum_EstadoInscripcion.PENDIENTE,
     required: true,
   },
   proyecto: {

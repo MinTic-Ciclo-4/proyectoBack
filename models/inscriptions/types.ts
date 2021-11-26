@@ -4,7 +4,7 @@ const typesInscription = gql`
 
   type Inscription {
     _id: ID!
-    fechaIngreso: Date!
+    fechaIngreso: Date
     fechaEgreso: Date
     estado: Enum_EstadoInscripcion!
     proyecto: Project!
@@ -22,6 +22,8 @@ const typesInscription = gql`
       proyecto: String!
       estudiante: String!
     ):Inscription
+
+    aprobarInscripcion(id: String!): Inscription
   }
 `;
 
