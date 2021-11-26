@@ -2,7 +2,7 @@
 
 enum Enum_Rol {
   ESTUDIANTE = "ESTUDIANTE",
-  LIDER = "LÍDER",
+  LIDER = "LIDER",
   ADMINISTRADOR = "ADMINISTRADOR"
 }
 
