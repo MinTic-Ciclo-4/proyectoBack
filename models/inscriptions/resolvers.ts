@@ -13,7 +13,6 @@ const resolversInscription = {
 
     crearInscripcion: async (parent, args) => {
       const inscripcionCreada = await inscriptionModel.create({
-        fechaIngreso: args.fechaIngreso,
         estado: args.estado,
         proyecto: args.proyecto,
         estudiante: args.estudiante,

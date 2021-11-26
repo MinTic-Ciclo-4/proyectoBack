@@ -14,7 +14,7 @@ interface inscription {
 const  inscripcionSchema = new Schema<inscription>({
   fechaIngreso:{
     type: Date,
-    required: true,
+    required: false,
   },
   fechaEgreso: {
     type: Date,
