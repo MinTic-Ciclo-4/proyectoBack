@@ -11,7 +11,6 @@ const typesAdvancements= gql`
     proyecto: Project!
   }
 
-
   type Query {
     Advancements: [Advancement]
   }

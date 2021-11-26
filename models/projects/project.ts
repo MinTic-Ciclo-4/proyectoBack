@@ -64,7 +64,17 @@ const projectSchema = new Schema<Project>({
       }
     }
   ]
+}, {
 
+  //Rendireze mis esquemas virtuales
+  toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+  toObject: { virtuals: true } // So `console.log()` and other functions that use `toObject()` include virtuals
+});
+
+projectSchema.virtual("avances",{
+  ref: "Advance",
+  localField: "_id",
+  foreignField: "proyecto",
 })
 
 const ProjectModel = model("Project", projectSchema);
