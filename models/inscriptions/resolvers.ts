@@ -20,6 +20,7 @@ const resolversInscription = {
       })
       return inscripcionCreada;
     },
+
     aprobarInscripcion: async (parent, args) => {
       const inscripcionAprobada = await inscriptionModel.findByIdAndUpdate(
         args.id,
