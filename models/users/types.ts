@@ -8,8 +8,8 @@ const typesUser = gql`
     apellido: String!
     identificacion: String!
     correo: String!
-    rol: Enum_Rol!
-    estado: Enum_EstadoUsuario
+    rol: Enum_Rol
+    estado: Enum_EstadoUsuario!
   }
 
 
@@ -37,8 +37,7 @@ const typesUser = gql`
       apellido: String!
       identificacion: String!
       correo: String!
-      rol: Enum_Rol!
-      estado: Enum_EstadoUsuario
+      estado: Enum_EstadoUsuario!
     ):User
   }
 `;
