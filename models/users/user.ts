@@ -3,6 +3,7 @@ import { Enum_EstadoUsuario, Enum_Rol } from "../enums/enums";
 
 interface User {
   correo: string;
+  password: string;
   identificacion: string;
   nombre: string;
   apellido: string;
@@ -28,6 +29,10 @@ const userSchema = new Schema<User>({
       },
       message: 'El formato del correo electonico es erroneo',
     },
+  },
+  password: {
+    type: String,
+    required: true
   },
   identificacion:{
     type: String,
