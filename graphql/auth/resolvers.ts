@@ -11,7 +11,7 @@ const resolversAuth = {
         rol: args.rol,
         password: args.password,
       });
-      return usuarioCreado;
+      return "usuarioCreado";
     }
   }
 }
