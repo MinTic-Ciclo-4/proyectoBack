@@ -1,10 +1,17 @@
-
+import { UserModel } from '../../models/users/user';
 
 const resolversAuth = {
   Mutation :{
     registro: async (parent, args) => {
-      console.log("Crear Usuario", args);
-      return 'Usuario Creado';
+      const usuarioCreado = await UserModel.create({
+        nombre: args.nombre,
+        apellido: args.apellido,
+        identificacion: args.identificacion,
+        correo: args.correo,
+        rol: args.rol,
+        password: args.password,
+      });
+      return usuarioCreado;
     }
   }
 }
