@@ -1,5 +1,6 @@
 import { UserModel } from '../../models/users/user';
 import bcrypt from 'bcrypt';
+import { generateToken } from '../../utils/tokenUtils'
 
 const resolversAuth = {
   Mutation :{
@@ -16,7 +17,16 @@ const resolversAuth = {
         rol: args.rol,
         password: hashedPassword,
       });
-      return "usuarioCreado";
+      return {
+        token: generateToken({
+          _id: usuarioCreado._id,
+          nombre: usuarioCreado.nombre,
+          apellido: usuarioCreado.apellido,
+          identificacion: usuarioCreado.identificacion,
+          correo: usuarioCreado.correo,
+          rol: usuarioCreado.rol,
+        }),
+      };
     }
   }
 }
