@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken')
 
 const generateToken = (payload) => {
   return jwt.sign(payload, 'secret', {
@@ -6,4 +6,4 @@ const generateToken = (payload) => {
   });
 }
 
-export { generateToken };
+exports.generateToken = generateToken;
