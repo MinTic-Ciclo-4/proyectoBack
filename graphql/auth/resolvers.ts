@@ -28,6 +28,13 @@ const resolversAuth = {
           rol: usuarioCreado.rol,
         }),
       };
+    },
+
+    login: async (parent, args) => {
+      console.log(args);
+      return {
+        token: 'hola soy el token',
+      };
     }
   }
 }

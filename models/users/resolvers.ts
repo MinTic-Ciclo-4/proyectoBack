@@ -47,7 +47,7 @@ const resolversUser = {
         correo: args.correo,
         estado: args.estado
       },
-      {new: true}
+        {new: true}
       );
 
       return usuarioEditado;
