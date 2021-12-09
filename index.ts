@@ -25,9 +25,15 @@ const server = new ApolloServer({
   typeDefs: types,
   resolvers: resolvers,
   context: ({req})=> {
-    //Obtener el token desde la variable req
-    const userData = getUserData(req.headers.authorization);
-    return {userData}; //Usar la informacion en todo el back
+    const token = req.headers?.authorization ?? null;
+    if(token) {
+      //Obtener el token desde la variable req
+      const userData = getUserData(req.headers.authorization);
+      if(userData){
+        return {userData}; //Usar la informacion en todo el back
+      }
+    }
+    return null;
   }
 })
 
