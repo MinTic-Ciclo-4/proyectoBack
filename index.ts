@@ -5,7 +5,7 @@ import dotenv from 'dotenv'; //manejar variables de entorno
 import conectarBD from './db/db';
 import { types } from './graphql/types';
 import { resolvers } from './graphql/resolvers';
-import validateToken  from './utils/tokenUtils.js';
+import { validateToken }  from './utils/tokenUtils.js';
 
 dotenv.config();
 
