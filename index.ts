@@ -9,12 +9,25 @@ import { validateToken }  from './utils/tokenUtils.js';
 
 dotenv.config();
 
+const getUserData = (token) => {
+
+  const verificacion = validateToken(token.split(' ')[1]);
+
+  if(verificacion.data) {
+    return verificacion.data;
+  } else {
+    return null;
+  }
+}
+
+
 const server = new ApolloServer({
   typeDefs: types,
   resolvers: resolvers,
-  context: ()=> {
-    const token = 'hosdkda';
-    validateToken(token);
+  context: ({req})=> {
+    //Obtener el token desde la variable req
+    const userData = getUserData(req.headers.authorization);
+    return {userData}; //Usar la informacion en todo el back
   }
 })
 

@@ -43,13 +43,11 @@ const resolversAuth = {
             rol: usuarioEncontrado.rol,
           }),
         };
-      }else {
-        return console.log("contraseña incorrecta");
-        ;
       };
     },
 
-    validateToken: async(parent, args) => {
+    validateToken: async(parent, args, context) => {
+      console.log(context);
 
     }
   }
