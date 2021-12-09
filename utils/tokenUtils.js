@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const validateToken = (token) => {
   if(token){
     const verification = jwt.verify(token, 'secret', (err, data) => {
-      console.log(verification);
+      console.log(err, data);
     });
   }
 }
