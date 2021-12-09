@@ -44,7 +44,8 @@ const resolversAuth = {
           }),
         };
       }else {
-        return "Contraseña incorrecta";
+        return console.log("contraseña incorrecta");
+        ;
       };
       console.log(usuarioEncontrado);
     }
