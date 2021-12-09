@@ -28,7 +28,7 @@ const server = new ApolloServer({
     const token = req.headers?.authorization ?? null;
     if(token) {
       //Obtener el token desde la variable req
-      const userData = getUserData(req.headers.authorization);
+      const userData = getUserData(token);
       if(userData){
         return {userData}; //Usar la informacion en todo el back
       }
