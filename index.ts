@@ -5,13 +5,17 @@ import dotenv from 'dotenv'; //manejar variables de entorno
 import conectarBD from './db/db';
 import { types } from './graphql/types';
 import { resolvers } from './graphql/resolvers';
-types
+import validateToken  from './utils/tokenUtils.js';
 
 dotenv.config();
 
 const server = new ApolloServer({
   typeDefs: types,
   resolvers: resolvers,
+  context: ()=> {
+    const token = 'hosdkda';
+    validateToken(token);
+  }
 })
 
 const app = express();

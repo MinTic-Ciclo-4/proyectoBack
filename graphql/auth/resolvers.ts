@@ -47,7 +47,10 @@ const resolversAuth = {
         return console.log("contraseña incorrecta");
         ;
       };
-      console.log(usuarioEncontrado);
+    },
+
+    validateToken: async(parent, args) => {
+
     }
   }
 }

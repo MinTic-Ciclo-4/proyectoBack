@@ -21,6 +21,10 @@ const typesAuth = gql`
       correo: String!
       password: String!
     ):Token
+
+    validateToken(
+      token: String!
+    ): Token
   }
 `;
 
