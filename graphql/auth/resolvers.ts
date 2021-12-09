@@ -43,6 +43,8 @@ const resolversAuth = {
             rol: usuarioEncontrado.rol,
           }),
         };
+      }else {
+        return "Contraseña incorrecta";
       };
       console.log(usuarioEncontrado);
     }
