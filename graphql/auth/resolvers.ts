@@ -48,7 +48,23 @@ const resolversAuth = {
 
     validateToken: async(parent, args, context) => {
       console.log(context);
-
+      //validar que el contexto tenga info del usuario. si sí, refrescar el token
+      if(!context.userData){
+        return  {
+          error: 'Token no valido',
+        }
+      } else {
+        return {
+          token: generateToken({
+            _id: context._id,
+            nombre: context.nombre,
+            apellido: context.apellido,
+            identificacion: context.identificacion,
+            correo: context.correo,
+            rol: context.rol,
+          }),
+        };
+      }
     }
   }
 }
