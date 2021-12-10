@@ -1,6 +1,6 @@
 import { UserModel } from '../../models/users/user';
 import bcrypt from 'bcrypt';
-import { generateToken } from '../../utils/tokenUtils.js'
+import { generateToken } from '../../utils/tokenUtils';
 
 const resolversAuth = {
   Mutation :{
@@ -47,7 +47,7 @@ const resolversAuth = {
     },
 
     validateToken: async(parent, args, context) => {
-      console.log(context);
+      console.log("contexto", context);
       //validar que el contexto tenga info del usuario. si sí, refrescar el token
       if(!context.userData){
         return  {
@@ -56,12 +56,12 @@ const resolversAuth = {
       } else {
         return {
           token: generateToken({
-            _id: context._id,
-            nombre: context.nombre,
-            apellido: context.apellido,
-            identificacion: context.identificacion,
-            correo: context.correo,
-            rol: context.rol,
+            _id: context.userData._id,
+            nombre: context.userData.nombre,
+            apellido: context.userData.apellido,
+            identificacion: context.userData.identificacion,
+            correo: context.userData.correo,
+            rol: context.userData.rol,
           }),
         };
       }
