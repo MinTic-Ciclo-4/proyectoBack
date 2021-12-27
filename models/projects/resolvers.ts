@@ -22,6 +22,17 @@ const resolversProject = {
       })
       return proyectoCreado;
     },
+    crearObjetivo: async (parent, args) => {
+      const objetivoCreado = await ProjectModel.findByIdAndUpdate(args.idProyecto,{
+        $addToSet: {
+          objetivos: {
+            descripcion: args.descripcion,
+            tipo: args.tipo,
+          },
+        },
+      });
+      return objetivoCreado;
+    }
   }
 }
 

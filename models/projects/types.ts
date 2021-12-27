@@ -44,6 +44,12 @@ const typesProject= gql`
       lider: String!
       objetivos: [createObjective]
     ):Project
+
+    crearObjetivo(
+      idProyecto: String!,
+      descripcion: String!
+      tipo: Enum_TipoObjetivo!
+      ):Project
   }
 `;
 
