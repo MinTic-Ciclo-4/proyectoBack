@@ -30,7 +30,7 @@ const resolversProject = {
             tipo: args.tipo,
           },
         },
-      });
+      }, {new: true});
       return objetivoCreado;
     }
   }
