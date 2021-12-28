@@ -3,7 +3,17 @@ import { UserModel } from "./user";
 const resolversUser = {
   Query: {
     Users: async (parent, args) => {
-      const users = await UserModel.find();
+      const users = await UserModel.find().populate([
+        {
+          path: 'inscripciones',
+          populate: {
+            path: 'proyecto',
+            populate : {
+              path: 'lider',
+            },
+          },
+        },
+      ]);
       return users;
     },
     User: async (parent, args) => {
