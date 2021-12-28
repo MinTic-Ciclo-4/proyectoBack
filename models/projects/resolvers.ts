@@ -22,17 +22,32 @@ const resolversProject = {
       })
       return proyectoCreado;
     },
+    editarProyecto: async (parent, args) => {
+      const proyectoEditado = await ProjectModel.findByIdAndUpdate(args._id, { ...args.campos },
+        {new: true}
+      );
+      return proyectoEditado;
+    },
     crearObjetivo: async (parent, args) => {
-      const objetivoCreado = await ProjectModel.findByIdAndUpdate(args.idProyecto,{
+      const objetivoCreado = await ProjectModel.findByIdAndUpdate(args.idProyecto, {
         $addToSet: {
-          objetivos: {
-            descripcion: args.descripcion,
-            tipo: args.tipo,
+          objetivos: { ...args.campos },
+        },
+      }, { new: true });
+      return objetivoCreado;
+    },
+    editarObjetivo: async (parent, args) => {
+      const objetivoEditado = await ProjectModel.findByIdAndUpdate(
+        args.idProyecto,
+        {
+          $set: {
+            [`objetivos.${args.indexObjetivo}.descripcion`]: args.campos.descripcion,
+            [`objetivos.${args.indexObjetivo}.tipo`]: args.campos.tipo,
           },
         },
-      }, {new: true});
-      return objetivoCreado;
-    }
+        { new: true });
+      return objetivoEditado;
+    },
   }
 }
 
