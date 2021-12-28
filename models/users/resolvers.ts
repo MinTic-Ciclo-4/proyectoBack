@@ -13,7 +13,7 @@ const resolversUser = {
             },
           },
         },
-      ]);
+      ]).populate('avancesCreados').populate('proyectosLiderados');
       return users;
     },
     User: async (parent, args) => {

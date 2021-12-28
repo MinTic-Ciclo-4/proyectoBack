@@ -57,10 +57,6 @@ const userSchema = new Schema<User>({
     enum: Enum_EstadoUsuario,
     default: Enum_EstadoUsuario.PENDIENTE,
   }
-}, {
-  //Rendireze mis esquemas virtuales
-  toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
-  toObject: { virtuals: true } // So `console.log()` and other functions that use `toObject()` include virtuals
 });
 
 userSchema.virtual("avancesCreados", {
@@ -69,10 +65,16 @@ userSchema.virtual("avancesCreados", {
   foreignField: "creadoPor",
 });
 
+userSchema.virtual("proyectosLiderados", {
+  ref: "Project",
+  localField: "_id",
+  foreignField: "lider",
+});
+
 userSchema.virtual("inscripciones", {
   ref: "Inscription",
   localField: "_id",
-  foreignField: "proyecto",
+  foreignField: "estudiante",
 });
 
 const UserModel = model("User", userSchema);
