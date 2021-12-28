@@ -70,9 +70,14 @@ const typesProject= gql`
       ):Project
 
     editarObjetivo(
-      idProyecto: String!,
-      indexObjetivo: Int!,
-      campos: camposObjetivo,
+      idProyecto: String!
+      indexObjetivo: Int!
+      campos: camposObjetivo
+    ):Project
+
+    eliminarObjetivo(
+      idProyecto: String!
+      idObjetivo: String!
     ):Project
   }
 `;

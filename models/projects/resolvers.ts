@@ -48,6 +48,20 @@ const resolversProject = {
         { new: true });
       return objetivoEditado;
     },
+    eliminarObjetivo: async (parent, args) => {
+      const objetivoEliminado = await ProjectModel.findByIdAndUpdate(
+        { _id: args.idProyecto },
+        {
+          $pull: {
+            objetivos : {
+              _id: args.idObjetivo,
+            },
+          },
+        },
+        { new : true }
+      );
+      return objetivoEliminado;
+    },
   }
 }
 
